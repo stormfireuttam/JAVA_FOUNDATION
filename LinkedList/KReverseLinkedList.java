@@ -106,14 +106,19 @@ public class KReverseLinkedList {
         public void reversePointer() {
             reversePointerHelper(head);
             head.next = null;
+            Node temp = head;
+            head = tail;
+            tail = temp;
+        }
+        private void reversePointerHelper(Node node) {
+            if (node == null)
+                return;
+            reversePointerHelper(node.next);
+            if (node == tail)
+                return;
+            node.next.next = node;
         }
 
-        private void reversePointerHelper(Node head) {
-            if (head == null) return;
-            reversePointerHelper(head.next);
-            if (head == tail) return;
-            head.next.next = head;
-        }
     }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
