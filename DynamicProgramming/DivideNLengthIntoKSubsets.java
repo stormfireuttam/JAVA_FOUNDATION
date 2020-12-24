@@ -23,7 +23,7 @@ public class DivideNLengthIntoKSubsets {
             So,  what would be the formula for it
             Lets see...
             at a particular position in dp[i][j] where i denotes the number of teams and j denotes the number of people
-            dp[i][j] = k * dp[i][j - 1] + dp[i - 1][j - 1]
+            dp[i][j] = i * dp[i][j - 1] + dp[i - 1][j - 1]
          */
         int dp[][] = new int[k + 1][n + 1];
         for (int teams = 1; teams <= k; teams++) {
